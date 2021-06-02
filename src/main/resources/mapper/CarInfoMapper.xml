@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zbdx.egou.dao.CarInfoDao">
+    <insert id="insertCarInfo">
+        insert into carinfo  values (null,#{type},#{brand},#{area},#{prodate},#{mileage},#{price},#{telephone},#{appearpic},#{carcolor},#{belong},'0',#{belongType},'0',#{model}
+        );
+    </insert>
+    <select id="selectById" resultType="com.zbdx.egou.pojo.CarInfo">
+        select * from carinfo where isdelete=0 and car_id=#{carId}
+    </select>
+    <select id="selectByIds" resultType="com.zbdx.egou.pojo.CarInfo">
+        select * from carinfo where isdelete =0
+        <if test="carIds!=null ">
+            and  car_id =
+            <foreach collection="carIds" item="carId" open="(" separator="or" close=")">
+                #{carId}
+            </foreach>
+        </if>
+        <if test="pageCurrent!=null">
+            limit  #{pageCurrent},3
+        </if>
+    </select>
+    <select id="selectByNameType" resultType="com.zbdx.egou.pojo.CarInfo">
+        select * from carinfo where isdelete=0 and belong_type =#{type } and belong=#{belong}
+        <if test="pageCurrent!=null">
+            limit  #{pageCurrent},3
+        </if>
+    </select>
+    <select id="selectAll" resultType="com.zbdx.egou.pojo.CarInfo">
+        select * from carinfo where isdelete =0
+    </select>
+    <select id="byPage" resultType="com.zbdx.egou.pojo.CarInfo">
+        select * from carinfo where isdelete =0 limit #{start},10
+    </select>
+    <select id="selectByArg" resultType="com.zbdx.egou.pojo.CarInfo">
+        select * from carinfo where  isdelete =0
+            <if test="ctype!=null">
+               and type =#{ctype}
+            </if>
+            <if test="sprice!=null">
+                and price >= #{sprice}
+            </if>
+            <if test="eprice!=null ">
+                <![CDATA[ and price < #{eprice} ]]>
+            </if>
+            <if test="model!=null">
+                and model=#{model}
+            </if>
+            <if test="sage!=null">
+                and prodate >=#{sage}
+            </if>
+            <if test="eage!=null">
+                <![CDATA[ and prodate <#{eage} ]]>
+            </if>
+            <if test="mileage!=null">
+                <![CDATA[ and mileage <#{mileage} ]]>
+            </if>
+            <if test="colors!=null ">
+               and  carcolor =
+                <foreach collection="colors" item="color" open="(" separator="or" close=")">
+                    #{color}
+                </foreach>
+            </if>
+            <if test="pageCurrent!=null">
+                limit  #{pageCurrent},10
+            </if>
+
+    </select>
+    <update id="delete" >
+        update carinfo set isdelete=1 where car_id=#{carId}
+    </update>
+</mapper>

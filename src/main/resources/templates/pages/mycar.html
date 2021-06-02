@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.pagination.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/mycollect.css">
+
+    <link rel="stylesheet" href="css/car_center.css"/>
+    <link rel="stylesheet" href="css/jquery.pagination.css">
+</head>
+
+<body >
+<div class="p-service">
+    <div class="p-cont-wrap">
+        <div class="">
+            <div class="p-cont-title clearfix">
+                <div class="float-l ct-txt">我发布的车源</div>
+            </div>
+            <!-- 没有求购 -->
+            <div id="divEmpty" class="p-cont-null">
+                <div class="content_main">
+                    <img src="//image.bitautoimg.com/taoche/2018_pc_usedcar/error-num.png" alt="">
+                    <div class="font_main">
+                        <h2>暂时没有发布二手车，请发布车！</h2>
+                    </div>
+                </div>
+            </div>
+            <!-- 列表 -->
+            <div id="main">
+                <div id="user_center">
+                    <div class="tables">
+                        <div class=" disabled table status_evaluate">
+                            <div class="head">
+                                <span class="time"></span>
+                                <span class="text"></span>
+                            </div>
+                            <table>
+                                <tr>
+                                    <td class="image" width="190px"><img
+                                            src="" alt=""></td>
+                                    <td class="info" width="170px">
+                                        <div class="tittle" style="padding-top: 30px"></div>
+                                    </td>
+                                    <td class="amount" width="200px" style="padding-top: 40px"></td>
+                                    <td class="pay" width="140px" rowspan="1">
+                                        <div class="money" style="padding-top: 40px"></div>
+                                    </td>
+                                    <td class="operate" width="180px" style="padding-top: 40px" rowspan="1">
+                                        <button class="say_btn">下架</button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class=" disabled table status_evaluate">
+                            <div class="head">
+                                <span class="time"></span>
+                                <span class="text"></span>
+                            </div>
+                            <table>
+                                <tr>
+                                    <td class="image" width="190px"><img
+                                            src="" alt=""></td>
+                                    <td class="info" width="170px">
+                                        <div class="tittle" style="padding-top: 30px"></div>
+                                    </td>
+                                    <td class="amount" width="200px" style="padding-top: 40px"></td>
+                                    <td class="pay" width="140px" rowspan="1">
+                                        <div class="money" style="padding-top: 40px"></div>
+                                    </td>
+                                    <td class="operate" width="180px" style="padding-top: 40px" rowspan="1">
+                                        <button class="say_btn">下架</button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class=" disabled table status_evaluate">
+                            <div class="head">
+                                <span class="time"></span>
+                                <span class="text"></span>
+                            </div>
+                            <table>
+                                <tr>
+                                    <td class="image" width="190px"><img
+                                            src="" alt=""></td>
+                                    <td class="info" width="170px">
+                                        <div class="tittle" style="padding-top: 30px"></div>
+                                    </td>
+                                    <td class="amount" width="200px" style="padding-top: 40px"></td>
+                                    <td class="pay" width="140px" rowspan="1">
+                                        <div class="money" style="padding-top: 40px"></div>
+                                    </td>
+                                    <td class="operate" width="180px" style="padding-top: 40px" rowspan="1">
+                                        <button class="say_btn">下架</button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div id="paginationpage" class="page " style="margin-top: 30px"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var text = $("#user_context", parent.document).text();
+        var type = $("#type", parent.parent.document).val();
+        var data = {pageCurrent: null, username: text, type: type};
+        $.ajax({
+            type: "post",
+            url: "/sell/selectMyCar",
+            data: data,
+            dataType: "json",
+            success: function (data) {
+                var length = data.length
+                if (data.length != 0) {
+                    $("#divEmpty").addClass("disabled")
+                    var sumCount = data.length;
+                    var pageCount = Math.ceil(sumCount / 3)
+                    $(".image img").each(function (i, n) {
+                        if (i == length) {
+                            return false;
+                        }
+                        $(n).attr('src', data[i].appearpic);
+                    })
+                    $(".head .text").each(function (i,n) {
+                        if (i == length) {
+                            return false;
+                        }
+                        $(n).html("车源编号："+data[i].carId)
+                    })
+                    $(".head .time").each(function (i,n) {
+                        if (i == length) {
+                            return false;
+                        }
+                        var date=new Date(data[i].prodate)
+                        $(n).html("发布日期："+date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate())
+                    })
+                    $(".table").each(function (i, n) {
+                        if (i < length) {
+                            $(n).removeClass("disabled")
+                        } else {
+                            $(n).addClass("disabled")
+                        }
+                    })
+                    $(".info .tittle").each(function (i,n) {
+                        if (i == length) {
+                            return false;
+                        }
+                        $(n).html(data[i].type+'<br>'+data[i].brand)
+                    })
+                    $(".amount").each(function (i,n) {
+                        if (i == length) {
+                            return false;
+                        }
+                        $(n).html(data[i].carcolor+" | "+data[i].model+'<br>'+data[i].area)
+                    })
+                    $(".pay .money").each(function (i,n) {
+                        if (i == length) {
+                            return false;
+                        }
+                        $(n).html(data[i].price+"万元")
+                    })
+                    $(".operate .say_btn").each(function (i,n) {
+                        if (i == length) {
+                            return false;
+                        }
+                        $(n).click(function () {
+                            $.post("/delete",{carId:data[i].carId},function (data) {
+                                if(data=="ok"){
+                                    $("#iframe",parent.document).attr("src","/mycar")
+                                }else{
+                                    alert("下架失败")
+                                }
+                            })
+                        })
+                    })
+                    $("#paginationpage").pagination({
+                        currentPage: 1,//当前页
+                        totalPage: pageCount,//数据总页数
+                        // isShow: false,
+                        homePageText: "首页",
+                        endPageText: "尾页",
+                        count: 3,//当前选中页前后页数
+                        prevPageText: "< 上一页",
+                        nextPageText: "下一页 >",
+                        callback: function (api) {
+                            $.ajax({
+                                url: "/sell/selectMyCar",
+                                type: 'POST',
+                                data: {
+                                    pageCurrent: api,
+                                    username: text,
+                                    type: type
+                                },
+                                success: function (data) {
+                                    var length = data.length
+                                    $(".image img").each(function (i, n) {
+                                        if (i == length) {
+                                            return false;
+                                        }
+                                        $(n).attr('src', data[i].appearpic);
+                                    })
+                                    $(".head .text").each(function (i,n) {
+                                        if (i == length) {
+                                            return false;
+                                        }
+                                        $(n).html("车源编号："+data[i].carId)
+                                    })
+                                    $(".head .time").each(function (i,n) {
+                                        if (i == length) {
+                                            return false;
+                                        }
+                                        var date=new Date(data[i].prodate)
+                                        $(n).html("发布日期："+date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate())
+                                    })
+                                    $(".table").each(function (i, n) {
+                                        if (i < length) {
+                                            $(n).removeClass("disabled")
+                                        } else {
+                                            $(n).addClass("disabled")
+                                        }
+                                    })
+                                    $(".info .tittle").each(function (i,n) {
+                                        if (i == length) {
+                                            return false;
+                                        }
+                                        $(n).html(data[i].type+'<br>'+data[i].brand)
+                                    })
+                                    $(".amount").each(function (i,n) {
+                                        if (i == length) {
+                                            return false;
+                                        }
+                                        $(n).html(data[i].carcolor+" | "+data[i].model+'<br>'+data[i].area)
+                                    })
+                                    $(".pay .money").each(function (i,n) {
+                                        if (i == length) {
+                                            return false;
+                                        }
+                                        $(n).html(data[i].price+"万元")
+                                    })
+                                    $(".operate .say_btn").each(function (i,n) {
+                                        if (i == length) {
+                                            return false;
+                                        }
+                                        $(n).click(function () {
+                                            $.post("/delete",{carId:data[i].carId},function (data) {
+                                                if(data=="ok"){
+                                                    $("#iframe",parent.document).attr("src","/mycar")
+                                                }else{
+                                                    alert("下架失败")
+                                                }
+                                            })
+                                        })
+                                    })
+                                }
+                            })
+                        }
+                    });
+                } else {
+                    $("#divEmpty").removeClass("disabled")
+                }
+            },
+            error: function (message) {
+
+            }
+        })
+
+    })
+</script>
+</html>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zbdx.egou.dao.StoreDao">
+    <select id="selectBysname" resultType="java.lang.Integer">
+        select store_id from store where sname=#{sname}
+    </select>
+    <select id="selectByTel" resultType="java.lang.Integer">
+        select store_id from store where tel=#{tel}
+    </select>
+    <select id="selectByUsername" resultType="com.zbdx.egou.pojo.Store">
+        select * from store where username=#{username}
+    </select>
+    <insert id="insert">
+        insert into store values (null ,#{sname},#{name},#{tel},#{password},#{username})
+    </insert>
+</mapper>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商家登录</title>
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/store.js"></script>
+
+    <link rel="stylesheet" href="/css/store.css">
+</head>
+<body>
+<div class="width_all">
+    <div class="new_top_heard">
+        <p>
+            <a href="/index" class="color_sel">首页</a>
+            <a href="/account/register">商家申请</a>
+            <a href="javascript:void(0)">帮助中心</a>
+        </p>
+        <em>服务热线：10100028</em>
+    </div>
+</div>
+<div class="new_login">
+    <div class="new_log_center">
+        <div class="login_left">
+            <ul>
+                <li class="login-a">
+                    <span>缺少渠道？</span>
+                    <p>
+                        移动店铺微信店铺<br>
+                        增加曝光轻松集客
+                    </p>
+                </li>
+                <li class="login-b">
+                    <span>车卖的慢？</span>
+                    <p>
+                        试试各种推广手段<br>
+                        教您如何快速卖车
+                    </p>
+                </li>
+                <li class="login-c">
+                    <span>想赚更多？</span>
+                    <p>
+                        掌握店铺经营情况<br>
+                        提供行业最新动向
+                    </p>
+                </li>
+            </ul>
+            <div class="login_l_link" style="padding-left: 40px">
+                <a href="javascript:void(0)">了解易购</a>
+            </div>
+        </div>
+        <div class="login_right">
+            <!--商家登录-->
+            <div class="shop_login" id="shop_login" name="shop_login">
+                <h2>商家登录</h2>
+                <p class="flase_txt"></p>
+
+                <ul style="padding-left: 0px">
+                    <li>
+                        <input type="text" id="lname" class="login_zh ng-pristine ng-valid" maxlength="11" placeholder="请输入您的账号/手机号！">
+                        <!--错误提示-->
+                        <p id="perror1" class="flase_txt ng-hide">请输入您的账号！</p>
+                    </li>
+                    <li>
+                        <input type="password" id="lpassword" class="login_ma ng-pristine " placeholder="请输入密码">
+                        <!--错误提示-->
+                        <p class="flase_txt ng-hide"  id="perror2" >请输入您的密码！</p>
+                        <p class="flase_txt hide" id="epErrorLogin">您的账户或密码填写错误！</p>
+                    </li>
+                    <li class="lognin_two">
+                        <a href="javascript:void(0);" class="login_btn" onclick="sLogin()">登录</a>
+                    </li>
+                    <li class="login_last">
+                        <a href="/Account/Getpassword" >忘记密码</a><em>|</em><a href="/account/register">商家申请</a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="login_wrapper">
+    <div class="mt70"></div>
+    <div class="login_title">不断满足您的需求</div>
+    <ul class="login_full" style="height: 530px">
+        <li>
+            <em class="full_a"></em>
+            <p>车源管理</p>
+        </li>
+        <li>
+            <em class="full_b"></em>
+            <p>商机线索</p>
+        </li>
+        <li>
+            <em class="full_c"></em>
+            <p>串车收车</p>
+        </li>
+        <li class="mar0">
+            <em class="full_d"></em>
+            <p>资产信息</p>
+        </li>
+        <li>
+            <em class="full_e"></em>
+            <p>店铺管理</p>
+        </li>
+        <li>
+            <em class="full_f"></em>
+            <p>商家保障</p>
+        </li>
+        <li>
+            <em class="full_g"></em>
+            <p>行业报告</p>
+        </li>
+        <li class="mar0">
+            <em class="full_h"></em>
+            <p>通讯统计</p>
+        </li>
+    </ul>
+    <div class="mt90"></div>
+</div>
+<div class="footer">
+    <div class="copyright">
+        <p>
+            <a href="javascript:void(0)" >关于我们</a> |
+            <a href="javascript:void(0)" >联系我们</a> |
+            <a href="javascript:void(0) ">易购二手车运营规范</a> |
+            <a href="javascript:void(0)">易购二手车</a> |
+            <a href="javascript:void(0)">帮助中心</a>
+        </p>
+        <span>CopyRight © 2000-2020 egou.com,All Rights Reserved 版权所有 易购二手车</span>
+    </div>
+</div>
+</body>
+</html>

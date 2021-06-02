@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zbdx.egou.dao.BrandDao">
+    <select id="selectByFirst" parameterType="java.lang.String"  resultType="java.lang.String">
+        select brand_name from brand where first_c=#{first}
+    </select>
+    <select id="selectBrandId" resultType="java.lang.Integer">
+        select brand_id from brand where brand_id=#{brandName}
+    </select>
+    <select id="selectAll" resultType="java.util.Map">
+        select brand_id,brand_name from brand
+    </select>
+    <select id="selectByBrandId" parameterType="java.lang.String" resultType="java.util.Map">
+        select ctype_id,ctype_name from ctype where brand_id=#{brandId}
+    </select>
+</mapper>

@@ -1,0 +1,131 @@
+.pagewrap {
+    width: 1200px;
+    margin: 20px auto 40px;
+}
+body{
+    overflow: auto;
+}
+.user_nav_box {
+    width: 200px;
+    float: left;
+    background: #f8f8f8;
+    border: 1px solid #e5e5e5;
+}
+.user_nav_box .user_photo_box {
+     padding: 40px 0 0;
+ }
+.user_nav_box .user_photo {
+    width: 102px;
+    height: 92px;
+    position: relative;
+    overflow: hidden;
+    margin: auto;
+}
+.bg_txt, .user_nav_box .user_photo_bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 92px;
+}
+.bg_txt {
+    background: rgba(0,0,0,.2);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#33000000,endColorstr=#33000000);
+    width: 100px;
+    z-index: 2;
+    color: #fff;
+    text-align: center;
+    line-height: 92px;
+    padding: 0 0 0 1px;
+    font-size: 14px;
+    display: none;
+}
+.user_nav_box .photo {
+    position: absolute;
+    left: 7px;
+    top: 0;
+    width: 88px;
+    height: 88px;
+    z-index: 1;
+}
+.user_photo_box .user_name {
+    padding: 0 0 30px;
+    font-size: 14px;
+    color: #2f3540;
+    text-align: center;
+    margin-top: 16px;
+}
+.user_nav {
+    padding-bottom: 60px;
+}
+li, ol, ul {
+    list-style: none;
+}
+ .tip_r {
+    width: 8px;
+    height: 12px;
+    position: absolute;
+    right: 20px;
+
+}
+.fl {
+    float: left;
+}
+.fr{
+    float: right;
+}
+.user_ul li a {
+    display: block;
+    line-height: 48px;
+    position: relative;
+    padding: 0 0 0 40px;
+    color: #2f3540;
+    font-size: 14px;
+    text-decoration: none;
+}
+.content_area{
+    height: 100%;
+}
+.content_wrapper{
+    height: 100%;
+}
+.maincont {
+    border: 1px solid #e5e5e5;
+    width: 984px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    float: right;
+}
+.nav_list {
+    border-bottom: 2px solid #ddd;
+}
+.nav_area {
+    padding-top: 22px;
+}
+.nav_list li.active {
+    border-bottom: 2px solid #f50013;
+}
+.nav_list li {
+    position: relative;
+    top: 2px;
+    float: left;
+    font-size: 14px;
+    color: #f50013;
+}
+li, ol, ul {
+    list-style: none;
+}
+.nav_list li a {
+    display: inline-block;
+    padding: 8px 20px;
+    color: #2f3540;
+    text-decoration: none;
+}
+  .curr{
+    color: #f50013; !important;
+    cursor: default;
+}
+.user_ul a:active,a:hover{
+    background-color: #d0d0d0;
+    border: 1px solid #e5e5e5;
+    color: red;
+}

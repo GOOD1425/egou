@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/detail.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/detail.js"></script>
+</head>
+
+<body>
+<input type="hidden" id="carId" th:value="${param.carId}"></input>
+<div class="taoche-details margin-md clearfix">
+    <div class="taoche-details-pic" id="taoche-details-pic">
+        <img class="zoom_img" src="">
+    </div>
+    <div class="detail-summary">
+        <div class="summary-title">
+            <h1 class="title">
+                <span name="tittle"></span>
+            </h1>
+            <div class="bzc-tags">
+                <span>保真服务</span><span>30天可退</span><span>1年保修</span><span>店内直卖</span><span>代办过户</span>
+            </div>
+        </div>
+        <div class="summary-attrs">
+            <div class="summary-attrs">
+                <dl>
+                    <dt>上牌时间</dt>
+                    <dd name="date"></dd>
+                </dl>
+                <dl>
+                    <dt>表显里程</dt>
+                    <dd name="mileage"></dd>
+                </dl>
+                <dl>
+                    <dt>销售城市</dt>
+                    <dd name="area"></dd>
+                </dl>
+            </div>
+        </div>
+        <div class="detail-summary-btn clearfix">
+            <a id="collect" class="summary-btna advisory" href="javascript:;">收藏</a>
+            <a id="order" class="im_btn im_wd" href="javascript:;">请求加购</a>
+        </div>
+    </div>
+
+</div>
+<div class="detail-tabnav" id="tab-menu">
+    <a class="clxx_tag" data-title="basicInfo" logwt="bytailsindex_btdw_jbxx" _islog="1">车辆信息</a>
+    <span id="deploy-time"></span>
+</div>
+<div class="title-sm mat30" id="basicInfoTitleDiv">基本信息</div>
+<div class="row  details-information-list" style="margin: 16px auto 0;">
+    <div style="padding-right: 60px" class="col-xs-3 details-information-main">
+        <div class="details-information">
+            <div class="details-information-ico bg1">
+                <em class="animated information-selected zoomIn"></em>
+            </div>
+            <strong>车况信息</strong>
+            <div class="row ">
+                <div class="col-xs-6 information-text">
+                    <p>
+                        行驶时间
+                    </p>
+                    <span id="xs"></span>
+                </div>
+                <div class="col-xs-6 information-text">
+                    <p>
+                        表显里程
+                    </p>
+                    <span id="smileage"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-3 details-information-main" style="padding-right: 60px;">
+        <div class="details-information">
+            <div class="details-information-ico bg2">
+                <em class="animated information-selected zoomIn"></em>
+            </div>
+            <strong>车辆维护情况</strong>
+            <div class="row ">
+                <div class="col-xs-6 information-text">
+                    <p>
+                        保养方式
+                    </p>
+                    定期维护
+                </div>
+                <div class="col-xs-6 information-text">
+                    <p>
+                        使用类型
+                    </p>
+                    非营运
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-3 details-information-main">
+        <div class="details-information">
+            <div class="details-information-ico bg4">
+                <em class="animated information-selected zoomIn"></em>
+            </div>
+            <strong>车源特色</strong>
+            <div class="row ">
+                <div class="col-xs-6 information-text">
+                    <p>车辆来源</p>
+                    <span id="belongType"></span>
+                </div>
+                <div class="col-xs-6 information-text">
+                    <p>所在地</p>
+                    <span id="sarea"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="title-sm mat30" id="">保真二手车</div>
+<div class="baozhen_tk">
+    <div class="baozhen_list">
+        <div class="icon aq_ico">保真车况</div>
+        <div class="centerBox">
+            <div class="strength">319项检测 1年或3万公里保修</div>
+        </div>
+        <div class="baozhen_detail" style="height: 48px;"><span
+                style="display: inline-block">专业检测师团队，高标准检测 全方位保真车况</span></div>
+    </div>
+    <div class="baozhen_list">
+        <div class="icon acc_ico">保真车源</div>
+        <div class="centerBox">
+            <div class="strength">30天可退车 额外再赔10%</div>
+        </div>
+        <div class="baozhen_detail" style="height: 48px;"><span style="display: inline-block">1+1保障，真心实意保真车源</span>
+        </div>
+    </div>
+    <div class="baozhen_list">
+        <div class="icon jg_ico">保真车价</div>
+        <div class="centerBox">
+            <div class="strength">成交价不高于展示价</div>
+        </div>
+        <div class="baozhen_detail" style="height: 48px;"><span style="display: inline-block">价格透明非双标平台内全国比价</span>
+        </div>
+    </div>
+</div>
+</body>
+</html>

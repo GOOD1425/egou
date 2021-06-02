@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商家申请</title>
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/store.js"></script>
+    <link rel="stylesheet" href="/css/store.css">
+</head>
+<body>
+<div class="width_all">
+    <div class="new_top_heard">
+        <p>
+            <a href="/index" class="color_sel">首页</a>
+            <a href="/account/register">商家申请</a>
+            <a href="javascript:void(0)">帮助中心</a>
+        </p>
+        <em>服务热线：10100028</em>
+    </div>
+</div>
+<div class="dl_box clearfix">
+    <div class="dl_box_title">
+        免费申请<br>
+        <p>以下信息淘车二手车将严格保密。请您放心填写！ </p>
+    </div>
+    <div class="free_apply">
+        <ul>
+            <li>
+                <label><i>*</i>店铺名</label>
+                <div class="apply_input">
+                    <input type="text" name="sname" maxlength="7" placeholder="请输入店铺名">
+                </div>
+                <p id="p1" class="flase_txt pal112 ng-hide">请输入店铺名！</p>
+                <p id="p2" class="flase_txt pal112 ng-hide" >店铺名已存在！</p>
+            </li>
+            <li>
+                <label><i>*</i>姓名</label>
+                <div class="apply_input">
+                    <input name="name" type="text" maxlength="7" placeholder="请输入联系人姓名">
+                </div>
+                <p  id="p3" class="flase_txt pal112 ng-hide">请输入联系人姓名！</p>
+                <p id="p5" class="flase_txt pal112 ng-hide" >联系人只能输入汉字！</p>
+            </li>
+            <li>
+                <label><i>*</i>手机号</label>
+                <div class="apply_input">
+                    <input name="tel" type="text" placeholder="请输入联系手机号" maxlength="11"  class="ng-pristine ng-valid">
+
+                </div>
+                <p id="p6" class="flase_txt pal112 ng-hide" >请输入联系人手机号！</p>
+                <p id="p7" class="flase_txt pal112 ng-hide" >手机号格式错误！</p>
+                <p id="p8" class="flase_txt pal112 ng-hide" >手机号已注册！</p>
+            </li>
+            <li>
+                <label><i>*</i>密码</label>
+                <div class="apply_input">
+                    <input name="password" type="password" placeholder="请输入登入密码" maxlength="11"  class="ng-pristine ng-valid">
+
+                </div>
+                <p id="p9" class="flase_txt pal112 ng-hide" >请输入密码！</p>
+            </li>
+            <li>
+                <label></label>
+                <div class="yz_button">
+                    <a id="reg" href="javascript:void(0)" onclick="sRegister()" class="login_btn bor-r2">同意管理规范并提交</a>
+                </div>
+                <p class="ya_guifan"><a href="javascript:void(0)" ng-click="agreement.show()">《淘车二手车平台运营管理规范》</a></p>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="footer">
+    <div class="copyright">
+        <p>
+            <a href="javascript:void(0)" >关于我们</a> |
+            <a href="javascript:void(0)" >联系我们</a> |
+            <a href="javascript:void(0) ">易购二手车运营规范</a> |
+            <a href="javascript:void(0)">易购二手车</a> |
+            <a href="javascript:void(0)">帮助中心</a>
+        </p>
+        <span>CopyRight © 2000-2020 egou.com,All Rights Reserved 版权所有 易购二手车</span>
+    </div>
+</div>
+</body>
+</html>

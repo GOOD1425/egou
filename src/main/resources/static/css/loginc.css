@@ -1,0 +1,124 @@
+.login {
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: auto 600px!important;
+    height: 600px;
+    position: relative;
+}
+.login-form {
+    padding-bottom: 40px;
+    position: absolute;
+    left: 50%;
+    top: 60px;
+    margin-left: 250px;
+    width: 340px;
+    background: #fff;
+    box-shadow: 0 2px 6px 0 rgb(0 0 0 / 8%);
+    font-size: 14px;
+    color: #999;
+}
+.tab-box {
+    position: relative;
+    padding: 40px 0 20px;
+    margin-bottom: 20px;
+    color: #686868;
+    font-size: 16px;
+    line-height: 150%;
+}
+.tab-box aside {
+    width: 50%;
+    float: left;
+    text-align: center;
+    cursor: pointer;
+}
+.tab-box aside.reg-tab {
+    text-align: left;
+    padding-left: 37px;
+    color: #2f3540;
+    box-sizing: border-box;
+}
+.login-con {
+    width: 300px;
+    margin: 0 auto;
+}
+
+.reg-btn,.user-btn {
+    background: #f50013;
+    border: 1px solid #f50013;
+    border-radius: 3px;
+    font-size: 16px;
+    color: #fff;
+    line-height: 42px;
+    text-align: center;
+    margin: 16px auto;
+    cursor: pointer;
+     width: 100%;
+}
+.reg-btn.disabled, .user-btn.disabled {
+    background-color: #fa8089;
+    color: #fff;
+    border: 1px solid #fa8089;
+}
+.other-login {
+    display: none;
+    font-size: 12px;
+    color: #d0d0d0;
+    margin-top: 20px;
+    position: relative;
+    text-align: center;
+}
+.login-con .pad10B input {
+    width: 298px;
+    height: 42px;
+    line-height: 42px\0;
+    border: none;
+    font-size: 14px;
+    border-radius: 2px;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+.login-con .border {
+    border: 1px solid #e5e5e5;
+}
+.login-con .pad10B input {
+    width: 298px;
+    height: 42px;
+    line-height: 42px\0;
+    border: none;
+    font-size: 14px;
+    border-radius: 2px;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+.jyts-box {
+    color: #ff223a;
+    font-size: 12px;
+    text-align: left;
+    line-height: 24px;
+    height: 24px;
+}
+.jyts {
+    display: none;
+}
+.input-box{
+    border: 0.5px solid #d0d0d0;
+}
+.reg-link {
+    text-align: center;
+}
+
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+.apart:link, .apart:visited {
+    color: #999;
+}
+a:hover, a:link, a:visited {
+    text-decoration: none;
+}
+a:link, a:visited {
+    cursor: pointer;
+}

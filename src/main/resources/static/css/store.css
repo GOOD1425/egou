@@ -1,0 +1,354 @@
+
+.width_all {
+    background: #fff;
+    width: 100%;
+}
+.new_top_heard {
+    width: 1200px;
+    margin: 0 auto;
+    height: 89px;
+    line-height: 89px;
+    background: url(//st1.taoche.cn/dealer/taochetong/images/tct_new_logo.png) left 28px no-repeat;
+}
+.new_top_heard p {
+    float: right;
+    display: inline-block;
+}
+.new_top_heard a {
+    font-size: 14px;
+    padding-left: 35px;
+    color: #333;
+}
+.color_sel {
+    color: #4385f5!important;
+}
+.new_top_heard em {
+    font-size: 14px;
+    color: #333;
+    font-style: normal;
+    padding-left: 120px;
+}
+.new_login {
+    width: 100%;
+    height: 630px;
+    background: url(//st1.taoche.cn/dealer/taochetong/images/new_login_01.jpg) center top no-repeat;
+}
+.new_log_center {
+    width: 1200px;
+    margin: 0 auto;
+    height: 430px;
+    padding: 90px 0 110px;
+}
+.login_left {
+    width: 850px;
+    height: 430px;
+    float: left;
+}
+.login_left ul li {
+    width: 150px;
+    height: 86px;
+    float: left;
+    margin-right: 10px;
+    padding-left: 90px;
+}
+.login-a {
+    background: url(//st1.taoche.cn/dealer/taochetong/images/new_login_02.png) no-repeat;
+}
+.login-b {
+    background: url(//st1.taoche.cn/dealer/taochetong/images/new_login_03.png) no-repeat;
+}
+.login-c {
+    background: url(//st1.taoche.cn/dealer/taochetong/images/new_login_04.png) no-repeat;
+}
+.login_left ul li span {
+    line-height: 35px;
+    font-size: 14px;
+    padding-top: 3px;
+    display: block;
+}
+.login_l_link {
+    clear: both;
+    height: 42px;
+    padding-top: 100px;
+}
+.login_left ul li p {
+    font-size: 12px;
+    color: #999;
+    line-height: 18px;
+}
+.login_l_link a {
+    display: block;
+    width: 133px;
+    height: 40px;
+    border: #4385f5 solid 1px;
+    border-radius: 5px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 16px;
+    color: #4385f5;
+}
+.login_right {
+    width: 350px;
+    height: 430px;
+    float: left;
+    background: #fff;
+    font-size: 14px;
+    position: relative;
+}
+.shop_login {
+    width: 280px;
+    padding: 0 35px;
+}
+.shop_login h2 {
+    line-height: 98px;
+    font-size: 24px;
+    text-align: center;
+    font-weight: normal;
+}
+.flase_txt {
+    color: red;
+    font-size: 12px;
+    line-height: 20px;
+    clear: both;
+    margin-top: 0px;
+}
+.shop_login ul li {
+    width: 280px;
+    height: 62px;
+    clear: both;
+}
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+ol, ul {
+    list-style: none;
+}
+.hide {
+    display: none;
+}
+.login_zh {
+    width: 238px;
+    height: 38px;
+    border: #ddd solid 1px;
+    background: url(//st1.taoche.cn/dealer/taochetong/images/new_login_07.png) 13px 11px no-repeat;
+    padding-left: 40px;
+    line-height: 38px;
+}
+.login_ma {
+    width: 238px;
+    height: 38px;
+    border: #ddd solid 1px;
+    background: url(//st1.taoche.cn/dealer/taochetong/images/new_login_07.png) 13px -41px no-repeat;
+    padding-left: 40px;
+    line-height: 38px;
+}
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide {
+    display: none !important;
+}
+.shop_login ul li.lognin_two {
+    height: 55px;
+}
+.login_btn {
+    height: 40px;
+    background: #4385f5;
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+    display: block;
+    line-height: 40px;
+}
+.shop_login ul li.login_last {
+    line-height: 20px;
+    color: #4385f5;
+    text-align: right;
+}
+.shop_login ul li.login_last a {
+    color: #4385f5;
+    display: inline-block;
+}
+a {
+    text-decoration: none;
+}
+.login_left ul {
+    padding-top: 120px;
+    width: 850px;
+    height: 86px;
+}
+.login_wrapper {
+    width: 1200px;
+    margin: 0 auto;
+}
+.mt70 {
+    width: 100%;
+    height: 70px;
+    clear: both;
+}
+.login_title {
+    text-align: center;
+    font-size: 36px;
+    line-height: 40px;
+    height: 52px;
+}
+.login_full {
+    width: 1200px;
+    padding-top: 15px;
+}
+.login_full li {
+    padding-top: 55px;
+    height: 190px;
+    width: 140px;
+    float: left;
+    margin-right: 213px;
+    text-align: center;
+}
+.login_full li em {
+    width: 140px;
+    height: 140px;
+    display: block;
+}
+.login_full li p {
+    font-size: 18px;
+    line-height: 50px;
+}
+.full_a {
+    background: url(//st1.taoche.cn/dealer/taochetong/images/new_login_08.png) 0 0 no-repeat;
+}
+.full_b {
+    background: url(//st1.taoche.cn/dealer/taochetong/images/new_login_08.png) -354px 0 no-repeat;
+}
+.full_c {
+    background: url(//st1.taoche.cn/dealer/taochetong/images/new_login_08.png) -709px 0 no-repeat;
+}
+.mar0 {
+    margin-right: 0 !important;
+}
+.full_d {
+    background: url(//st1.taoche.cn/dealer/taochetong/images/new_login_08.png) -1063px 0 no-repeat;
+}
+.full_e {
+    background: url(//st1.taoche.cn/dealer/taochetong/images/new_login_08.png) 0 -253px no-repeat;
+}
+.full_f {
+    background: url(//st1.taoche.cn/dealer/taochetong/images/new_login_08.png) -354px -253px no-repeat;
+}
+.full_g {
+    background: url(//st1.taoche.cn/dealer/taochetong/images/new_login_08.png) -709px -253px no-repeat;
+}
+.full_h {
+    background: url(//st1.taoche.cn/dealer/taochetong/images/new_login_08.png) -1062px -253px no-repeat;
+}
+.footer {
+    width: 100%;
+    background: #202229;
+    height: 166px;
+    margin-top: 80px;
+}
+.copyright {
+    width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 35px;
+}
+.copyright p {
+    padding-top: 20px;
+    font-size: 18px;
+    color: #999;
+    line-height: 25px;
+}
+.copyright p a {
+    padding-left: 18px;
+    padding-right: 18px;
+    color: #999;
+}
+.copyright span {
+    display: block;
+    padding-top: 18px;
+    color: #999;
+    font-size: 14px;
+}
+.dl_box {
+    width: 1200px;
+    margin: 38px auto 0;
+    background: #fff;
+    border-top: #ccc solid 3px;
+    padding: 40px 0 60px;
+}
+.dl_box_title {
+    text-align: center;
+    font-size: 36px;
+    line-height: 42px;
+    padding-top: 25px;
+}
+.dl_box_title p {
+    font-size: 14px;
+    padding-top: 7px;
+}
+.free_apply {
+    margin: 35px auto 0;
+    width: 600px;
+}
+.free_apply ul li {
+    height: 70px;
+    width: 590px;
+    font-size: 14px;
+}
+.free_apply ul li label {
+    width: 92px;
+    height: 40px;
+    float: left;
+    margin-right: 20px;
+    display: block;
+    line-height: 40px;
+    color: #666;
+    text-align: right;
+}
+.free_apply ul li label i {
+    font-style: normal;
+    color: red;
+    padding-right: 5px;
+    vertical-align: middle;
+}
+.apply_input {
+    width: 394px;
+    height: 40px;
+    float: left;
+}
+.apply_input input {
+    width: 374px;
+    height: 38px;
+    padding: 0 10px;
+    border: #ddd solid 1px;
+    background: #fff;
+    font-size: 14px;
+    vertical-align: middle;
+    line-height: 38px;
+}
+.yz_button {
+    width: 394px;
+    height: 40px;
+    float: left;
+}
+.login_btn {
+    height: 40px;
+    background: #4385f5;
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+    display: block;
+    line-height: 40px;
+}
+.ya_guifan {
+    text-align: right;
+    line-height: 30px;
+    font-size: 14px;
+    clear: both;
+    padding-right: 84px;
+}
+.ya_guifan a {
+    color: #666;
+    text-decoration: underline;
+}
+.pal112 {
+    padding-left: 112px;
+}

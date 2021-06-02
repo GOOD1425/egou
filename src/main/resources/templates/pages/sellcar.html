@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+    <meta charset="utf-8"/>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <style type="text/css">
+        body {
+            font: 14px/28px "微软雅黑";
+        }
+
+        .contact *:focus {
+            outline: none;
+        }
+
+        .contact {
+            height: auto;
+            background: #f6f6f6;
+            margin: 40px auto;
+            padding: 10px;
+            overflow: hidden;
+        }
+
+        span {
+
+        }
+
+        .contact ul {
+            width: 650px;
+            margin: 0 auto;
+        }
+
+        .contact ul li {
+            border-bottom: 1px solid #dfdfdf;
+            list-style: none;
+            padding: 9px;
+            text-align: center;
+        }
+
+        .contact ul li label {
+            width: 80px;
+            display: inline-block;
+            float: left;
+        }
+
+        .contact ul li input[type=text], .contact ul li input[type=month] {
+            height: 20px;
+            border: 1px solid #aaa;
+            padding: 3px 8px;
+            border-radius: 5px;
+        }
+
+        .contact ul li input[type=file] {
+            height: 20px;
+            width: 160px;
+            padding: 3px 8px;
+            border-radius: 5px;
+        }
+
+        .contact ul li input:focus {
+            border-color: #c00;
+        }
+
+
+        .btn {
+            position: relative;
+            left: 50%;
+            top: 5px;
+
+        }
+
+        select {
+            height: 25px;
+            border: 1px solid #aaa;
+            padding: 3px 8px;
+            border-radius: 5px;
+        }
+
+    </style>
+
+    <script type="text/javascript">
+        $.post("/selectAll", function (data) {
+            for (var i = 0; i < data.length; i++) {
+              $("#ctype").append("<option value=" + data[i].brand_id + ">" + data[i].brand_name + "</option>")
+                //   $("#ctype").append("<option value=" + data[i].brand_name + ">" + data[i].brand_name + "</option>")
+            }
+        })
+
+        function changeCtype() {
+            var brandId = $("#ctype").val()
+            $("#brand").empty();
+            $("#brand").append("<option value= ''>请选择车系</option>")
+            $.post("/selectCtype", {brandId: brandId}, function (data) {
+                for (var i = 0; i < data.length; i++) {
+                   $("#brand").append("<option value=" + data[i].ctype_id + ">" + data[i].ctype_name + "</option>")
+                    //   $("#brand").append("<option value=" + data[i].ctype_name + ">" + data[i].ctype_name + "</option>")
+                }
+            })
+        }
+
+        function submit() {
+            var type = $("#type", parent.document).val()
+            var username = $("#login-car", parent.document).text()
+            var ctype = $("#ctype option:selected").text();
+            var model = $("#model option:selected").text();
+            var brand = $("#brand option:selected").text();
+            var color = $("#color option:selected").text();
+            var month = $('input[name=date]').val();
+            var mileage = $('input[name=mileage]').val();
+            var price = $('input[name=price]').val();
+            var formData = new FormData();
+            formData.append('multipartFile', $('#appearpic')[0].files[0]);  //添加图片信息的参数
+            formData.append("ctype", ctype);
+            formData.append("brand", brand);
+            formData.append("color", color);
+            formData.append("month", month);
+            formData.append("mileage", mileage);
+            formData.append("price", price);
+            formData.append("type", type);
+            formData.append("username", username);
+            formData.append("model", model);
+
+
+            $.ajax({
+                type: "post",
+                data: formData,
+                url: "/sell/Info",
+                dataType: "text",
+                cache: false,
+                processData: false,// 不处理数据
+                contentType: false, // 不设置内容类型
+                success: function (data1) {
+                    console.log(data1)
+                    if (data1 == "ok") {
+                        alert("上传成功")
+                    } else {
+                        alert("上传失败")
+                    }
+                }
+            })
+
+        }
+    </script>
+
+</head>
+
+<body>
+
+<div class="contact">
+
+    <form id="form1" enctype="multipart/form-data" method="post">
+        <ul>
+            <li>
+                <span>品牌：</span>
+                <select id="ctype" onchange="changeCtype(this)">
+                    <option value="">请选择车的品牌</option>
+                </select>
+            </li>
+            <li>
+                <span>车系：</span>
+                <select id="brand">
+                    <option value="">请选择车系</option>
+                </select>
+            </li>
+            <li>
+                <span>车型：</span>
+                <select id="model">
+                    <option value="小型车">小型车</option>
+                    <option value="微型车">微型车</option>
+                    <option value="中型车">中型车</option>
+                    <option value="中大型车">中大型车</option>
+                    <option value="跑车">跑车</option>
+                    <option value="面包车">面包车</option>
+                </select>
+            </li>
+            <li>
+                <span>上牌日期：</span>
+                <input type="month" name="date" required/>
+            </li>
+            <li>
+                <span>里程数：</span>
+                <input type="number" value="0.00" min="0.00" step="0.01" name="mileage" placeholder="请输入行驶里程数"  required>
+
+            </li>
+
+            <li>
+                <span>预估价：</span>
+                <input type="number"  value="0.00" min="0.00" step="0.01" name="price"  placeholder="请输入你的预估价"  required>
+            </li>
+            <li>
+                <span>外观图片：</span>
+                <input id="appearpic" type="file"/>
+            </li>
+            <li>
+                <span>颜色：</span>
+                <select id="color">
+                    <option value="黑色">黑色</option>
+                    <option value="银灰色">银灰色</option>
+                    <option value="白色">白色</option>
+                    <option value="红色">红色</option>
+                    <option value="蓝色">蓝色</option>
+                    <option value="深灰色">深灰色</option>
+                    <option value="香槟色">香槟色</option>
+                    <option value="绿色">绿色</option>
+                    <option value="橙色">橙色</option>
+                    <option value="黄色">黄色</option>
+                    <option value="咖啡色">咖啡色</option>
+                    <option value="紫色">紫色</option>
+                </select>
+            </li>
+        </ul>
+    </form>
+    <div class="btn"><input type="button" onclick="submit()" value="提交"/>
+        <input type="reset" value="取消"/>
+    </div>
+
+
+</div>
+
+</body>
+
+</html>
+
+
+

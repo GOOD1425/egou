@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/loginc.css">
+</head>
+<body>
+<div class="login" style="background-image: url('//img1.yixinfinance.com/images/e73f1432-6711-4b4d-b7be-a49933f05053.jpg')">
+    <article class="content clrfix">
+        <blockquote class="login-form" style="margin-bottom: 0px;padding-bottom: 0px;">
+            <div class="form clrfix">
+                <div id="login">
+                    <header class="tab-box clrfix">
+                        <aside id="1" class="fl tab cur-p">账号密码登录</aside>
+                    </header>
+                    <article class="login-con">
+                        <blockquote id="form">
+                            <!-- 账号密码登录 -->
+                            <blockquote id="tab1" class="hide">
+                                <div class="pad10B pad30RL">
+                                    <div class="input-item clrfix">
+                                        <div class="input-box">
+                                            <input id="username" name="mobile" type="text" maxlength="11" class="inputNumber AppCheck nocheck data border1" autocomplete="off" placeholder="请输入帐号"></div>
+                                    </div>
+                                </div>
+                                <div class="jyts-box"><span class="jyts jyts-mobile1">请输入正确的帐号</span></div>
+                                <div class="pad10B pad30RL">
+                                    <div class="input-item clrfix">
+                                        <div class="input-box"><input autocomplete="new-password" id="password" name="password" type="password" minlength="6" maxlength="20" class="AppCheck nocheck data border1" placeholder="请输入密码"></div>
+                                    </div>
+                                </div>
+                                <div class="jyts-box"><span class="jyts jyts-password">请输入正确的密码</span></div>
+
+                                <div class="clrfix tools-box">
+                                    <div class="fl"><input id="rememberMe1" name="rememberMe" class="data" type="checkbox" value="false"> 自动登录
+                                    </div>
+                                    <a class="apart hide fr" href="/ForgetPwd?returnurl=http%253a%252f%252fhome.taoche.com%252fMyOrder%252fOrderDetail%253fchildOrderId%253d941562338581696">忘记密码</a>
+                                </div>
+                            </blockquote>
+                            <div id="user-btn2" class="btn user-btn disabled">立即登录</div>
+                            <div class="reg-link">
+                                <a id="reg-link" href="javascript:void(0);">免费注册</a>
+                            </div>
+                        </blockquote>
+                    </article>
+                </div>
+                <div id="reg" style="display:none">
+                    <header class="tab-box">
+                        <aside class="reg-tab">快速注册</aside>
+                        <div>已注册可直接<a id="login-link" href="javascript:void(0);">登录</a></div>
+                    </header>
+                    <article id="form1" class="login-con">
+                        <blockquote id="regForm" class="reg-box">
+                            <div class="pad10B pad30RL">
+                                <div class="input-item clrfix">
+                                    <div class="input-box"><input id="mobile" name="mobile" type="text" maxlength="11" class="inputNumber AppCheck nocheck data border1" placeholder="请输入手机号" autocomplete="off"></div>
+                                </div>
+                            </div>
+                            <div class="jyts-box"><span class="jyts jyts-mobile">请输入正确的手机号</span></div>
+                            <div class="pad10B pad30RL">
+                                <div class="input-item clrfix">
+                                    <div class="input-box"><input id="password1" name="password" type="password" minlength="6" maxlength="20" class="AppCheck nocheck data border1" placeholder="请输入密码" autocomplete="off"></div>
+                                </div>
+                            </div>
+                            <div class="jyts-box"><span class="jyts jyts-password1">密码至少包含两种字母、数字、符号，6-12位</span></div>
+                            <div class="pad10B pad30RL">
+                                <div class="input-item clrfix">
+                                    <div class="input-box"><input id="password2" name="password" type="password" minlength="6" maxlength="20" class="AppCheck nocheck data border1" placeholder="请输入密码" autocomplete="off"></div>
+                                </div>
+                            </div>
+                            <div class="jyts-box"><span class="jyts jyts-password2">两次密码不一致，请重新输入</span></div>
+                            <div class="tools-box terms-service">
+                                <div><input id="rule" type="checkbox" checked="checked" value=""> 我已经看过并同意<a target="_blank" href="http://sq.taoche.com/home/serviceterms" class="reg-rule">《网络服务条款》</a>
+                                </div>
+                            </div>
+                            <div id="reg-btn" class="btn reg-btn disabled">立即注册</div>
+                        </blockquote>
+                    </article>
+                </div>
+            </div>
+        </blockquote>
+    </article>
+    <aside class="banner_btm"></aside>
+</div>
+<script type="text/javascript" src="js/login.js"></script>
+</body>
+</html>

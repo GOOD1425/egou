@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.pagination.min.js"></script>
+    <link rel="stylesheet" href="css/item.css">
+    <link rel="stylesheet" href="css/jquery.pagination.css">
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var arg = $("#args", parent.document).val();
+            var data = {pageCurrent: null, args: arg};
+            console.log(arg)
+            $.ajax({
+                type: "post",
+                url: "/buycar/getCar",
+                data: data,
+                dataType: "json",
+                success: function (data) {
+                    if (data.length != 0) {
+                        $(".Car_nothing").addClass("disabled")
+                        var length = data.length
+                        $(".images").each(function (i, n) {
+                            if (i == length) {
+                                return false
+                            }
+                            $(n).attr('src', data[i].appearpic);
+
+                        })
+
+                          $(".ahref").each(function (i, n) {
+                              if (i == length) {
+                                  return false
+                              }
+                              $(n).bind("click",function () {
+                                  $("#J_iframe",window.parent.parent.document).attr("src","/detail?carId="+data[i].carId)
+                              })
+
+                          })
+                        $(".item-name").each(function (i, n) {
+                            if (i == length) {
+                                return false
+                            }
+                            $(n).text(data[i].type + " | " + data[i].brand);
+                        })
+                        $(".item-cartext").each(function (i, n) {
+                            if (i == length) {
+                                return false
+                            }
+                            $(n).text(data[i].prodate.substring(0, 4) + "年 | " + data[i].mileage + "万公里  |" + data[i].area);
+                        })
+
+                        $(".item-price").each(function (i, n) {
+                            if (i == length) {
+                                return false
+                            }
+                            $(n).text("￥" + data[i].price + "万");
+                        })
+
+                        $(".ahref").each(function (i, n) {
+                            if (i < length) {
+                                $(n).removeClass("disabled")
+                            } else {
+                                $(n).addClass("disabled")
+                            }
+                        })
+                        var sumCount = data.length;
+
+                        var pageCount = Math.ceil(sumCount / 10)
+
+                        $("#paginationpage").pagination({
+                            currentPage: 1,//当前页
+                            totalPage: pageCount,//数据总页数
+                            // isShow: false,
+                            homePageText: "首页",
+                            endPageText: "尾页",
+                            count: 3,//当前选中页前后页数
+                            prevPageText: "< 上一页",
+                            nextPageText: "下一页 >",
+                            callback: function (api) {
+                                $.ajax({
+                                    url: "/buycar/getCar",
+                                    type: 'POST',
+                                    data: {
+                                        pageCurrent: api,
+                                        args: arg
+                                    },
+                                    success: function (data) {
+                                        var length = data.length
+                                        $(".images").each(function (i, n) {
+                                            if (i == length) {
+                                                return false
+                                            }
+                                            $(n).attr('src', data[i].appearpic);
+
+                                        })
+                                        $(".ahref").each(function (i, n) {
+                                            if (i == length) {
+                                                return false
+                                            }
+                                            $(n).bind("click",function () {
+                                                $("#J_iframe",window.parent.parent.document).attr("src","/detail?carId="+data[i].carId)
+                                            })
+
+                                        })
+                                        $(".item-name").each(function (i, n) {
+                                            if (i == length) {
+                                                return false
+                                            }
+                                            $(n).text(data[i].type + " | " + data[i].brand);
+                                        })
+                                        $(".item-cartext").each(function (i, n) {
+                                            if (i == length) {
+                                                return false
+                                            }
+                                            $(n).text(data[i].prodate.substring(0, 4) + "年 | " + data[i].mileage + "万公里  |" + data[i].area);
+                                        })
+
+                                        $(".item-price").each(function (i, n) {
+                                            if (i == length) {
+                                                return false
+                                            }
+                                            $(n).text("￥" + data[i].price + "万");
+                                        })
+
+                                        $(".ahref").each(function (i, n) {
+                                            if (i < length) {
+                                                $(n).removeClass("disabled")
+                                            } else {
+                                                $(n).addClass("disabled")
+                                            }
+                                        })
+
+                                    }
+                                })
+                            }
+                        });
+                    } else {
+                        $(".Car_nothing").removeClass("disabled")
+                    }
+                },
+                error: function (message) {
+
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+<div class="index-carlist-bg ">
+    <div class="index-carlist-title">热卖车型</div>
+</div>
+<div id="columns">
+    <div class="column">
+        <div class="container">
+            <div class="Car_nothing disabled"><img src="//image.bitautoimg.com/taoche/2018_pc_usedcar/error-num.png">
+                <div class="Car_main"><h1>暂时没有找到符合条件的二手车</h1><h4>您可以放宽您的搜索条件，尝试以下组合</h4>
+                    <p>您还可以尝试下帮买服务，专属顾问帮您寻找最合心意的车。</p></div>
+            </div>
+            <div class="items">
+                <tr>
+                    <a class="ahref disabled">
+                        <div class="item">
+                            <div class="item-image">
+                                <img class="images" src="" alt="">
+                            </div>
+                            <div class="item-name"></div>
+                            <div class="item-cartext tcrenz-car-txt">
+
+                            </div>
+                            <div class="item-price"></div>
+                        </div>
+                    </a>
+                    <a class="ahref disabled">
+                        <div class="item">
+                            <div class="item-image">
+                                <img class="images" src="" alt="">
+                            </div>
+                            <div class="item-name"></div>
+                            <div class="item-cartext tcrenz-car-txt">
+
+                            </div>
+                            <div class="item-price"></div>
+                        </div>
+                    </a>
+                    <a class="ahref disabled">
+                        <div class="item">
+                            <div class="item-image">
+                                <img class="images" src="" alt="">
+                            </div>
+                            <div class="item-name"></div>
+                            <div class="item-cartext tcrenz-car-txt">
+
+                            </div>
+                            <div class="item-price"></div>
+                        </div>
+                    </a>
+                    <a class="ahref disabled">
+                        <div class="item">
+                            <div class="item-image">
+                                <img class="images" src="" alt="">
+                            </div>
+                            <div class="item-name"></div>
+                            <div class="item-cartext tcrenz-car-txt">
+
+                            </div>
+                            <div class="item-price"></div>
+                        </div>
+                    </a>
+                    <a class="ahref disabled">
+                        <div class="item">
+                            <div class="item-image">
+                                <img class="images" src="" alt="">
+                            </div>
+                            <div class="item-name"></div>
+                            <div class="item-cartext tcrenz-car-txt">
+
+                            </div>
+                            <div class="item-price"></div>
+                        </div>
+                    </a>
+                </tr>
+                <tr>
+                    <a class="ahref disabled">
+                        <div class="item">
+                            <div class="item-image">
+                                <img class="images" src="" alt="">
+                            </div>
+                            <div class="item-name"></div>
+                            <div class="item-cartext tcrenz-car-txt">
+
+                            </div>
+                            <div class="item-price"></div>
+                        </div>
+                    </a>
+                    <a class="ahref disabled">
+                        <div class="item">
+                            <div class="item-image">
+                                <img class="images" src="" alt="">
+                            </div>
+                            <div class="item-name"></div>
+                            <div class="item-cartext tcrenz-car-txt">
+
+                            </div>
+                            <div class="item-price"></div>
+                        </div>
+                    </a>
+                    <a class="ahref disabled">
+                        <div class="item">
+                            <div class="item-image">
+                                <img class="images" src="" alt="">
+                            </div>
+                            <div class="item-name"></div>
+                            <div class="item-cartext tcrenz-car-txt">
+
+                            </div>
+                            <div class="item-price"></div>
+                        </div>
+                    </a>
+                    <a class="ahref disabled">
+                        <div class="item">
+                            <div class="item-image">
+                                <img class="images" src="" alt="">
+                            </div>
+                            <div class="item-name"></div>
+                            <div class="item-cartext tcrenz-car-txt">
+
+                            </div>
+                            <div class="item-price"></div>
+                        </div>
+                    </a>
+                    <a class="ahref disabled">
+                        <div class="item">
+                            <div class="item-image">
+                                <img class="images" src="" alt="">
+                            </div>
+                            <div class="item-name"></div>
+                            <div class="item-cartext tcrenz-car-txt">
+
+                            </div>
+                            <div class="item-price"></div>
+                        </div>
+                    </a>
+                </tr>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="paginationpage" class="page "></div>
+</body>
+</html>
