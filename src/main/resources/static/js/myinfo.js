@@ -1,6 +1,5 @@
 $(document).ready(function(){
-    //var name= $("#login-car", parent.document).text()
-    var name= "18834165758"
+    var name= $("#login-car", parent.document).text()
     var text = $("#user_context").text(name);
     if(text!=''&&text!=undefined&&text!=null){
         $(".content_wrapper iframe").attr("src","/mycar")

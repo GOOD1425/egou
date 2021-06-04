@@ -1,7 +1,11 @@
 package com.zbdx.egou.controller;
 
 import com.zbdx.egou.pojo.CarInfo;
+import com.zbdx.egou.pojo.Inquiry;
+import com.zbdx.egou.pojo.User;
 import com.zbdx.egou.service.CarInfoService;
+import com.zbdx.egou.service.InquiryService;
+import com.zbdx.egou.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -103,4 +107,5 @@ public class BuyController {
     public String showDetail(){
         return "/detail";
     }
+
 }

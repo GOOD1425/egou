@@ -3,7 +3,7 @@ $(document).ready(function(){
     $.post("/buycar/selectById",{carId:carId},function (data) {
         console.log(data)
         $("#taoche-details-pic img").attr("src",data.appearpic)
-        $(".title span[name='tittle']").text(data.type+"|"+data.brand)
+        $(".title span[name='tittle']").text(data.type+"|"+data.brand+" |   "+data.price+"万元")
         var prodate=new Date(data.prodate);
         var deploy=new Date(data.update);
         $(".summary-attrs dd[name='date']").text(prodate.getFullYear()+"年"+(prodate.getMonth()+1)+"月")
@@ -43,6 +43,15 @@ $(document).ready(function(){
         }
     })
     $("#order").click(function (){
-
+        var islogin=$("#login-car",parent.document).text()
+        if(islogin=="登录"){
+            $("#J_iframe",parent.document).attr("src","/login")
+        }else{
+            $.post("/xunjia",{username:islogin,carId:carId},function (data){
+                if(data=="ok"){
+                    alert("询价成功，稍后联系！！")
+                }
+            })
+        }
     })
 })

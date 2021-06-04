@@ -25,6 +25,7 @@ public class CollectionController {
         Integer insert = collectionService.insert(collection);
         if(insert>0){
             return "ok";
+
         }
         return "error";
     }

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zbdx.egou.dao.InquiryDao">
+    <insert id="insert">
+        insert into inquiry values (#{id} ,#{carId},#{telephone},#{date},#{isdelete},#{userId})
+    </insert>
+    <select id="selectAll" resultType="com.zbdx.egou.pojo.Inquiry">
+        select * from inquiry where isdelete=0
+        <if test="carIds!=null ">
+            and  car_id in
+            <foreach collection="carIds" item="carId" open="(" separator="," close=")">
+                #{carId}
+            </foreach>
+        </if>
+        <if test="pageCurrent!=null">
+            limit  #{pageCurrent},3
+        </if>
+    </select>
+</mapper>
