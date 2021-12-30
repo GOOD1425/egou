@@ -119,7 +119,7 @@ $("#user-btn2").click(function () {
                     $(".jyts-password").addClass("jyts")
                     $("#login-car",parent.document).text(username)
                     $("#type",parent.document).val("user")
-                    $("#J_iframe",parent.document).attr("src","/content")
+                    $("#J_iframe",parent.document).attr("src","/buy")
                 }
             }
         });

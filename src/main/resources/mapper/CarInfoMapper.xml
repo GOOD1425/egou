@@ -13,8 +13,8 @@
     <select id="selectByIds" resultType="com.zbdx.egou.pojo.CarInfo">
         select * from carinfo where isdelete =0
         <if test="carIds!=null ">
-            and  car_id =
-            <foreach collection="carIds" item="carId" open="(" separator="or" close=")">
+            and  car_id in
+            <foreach collection="carIds" item="carId" open="(" separator="," close=")">
                 #{carId}
             </foreach>
         </if>
@@ -71,4 +71,10 @@
     <update id="delete" >
         update carinfo set isdelete=1 where car_id=#{carId}
     </update>
+    <update id="pay">
+        update carinfo set belong=#{belong} and belong_type=#{belongType} where car_id=#{carId}
+    </update>
+    <select id="carBelong" resultType="com.zbdx.egou.pojo.CarInfo">
+        select * from carinfo where belong=#{belong} and belong_type=#{type} and car_id=#{carId} and isdelete=0
+    </select>
 </mapper>

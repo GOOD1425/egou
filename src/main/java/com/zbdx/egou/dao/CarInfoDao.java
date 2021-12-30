@@ -14,4 +14,6 @@ public interface CarInfoDao {
     List<CarInfo> selectAll();
     List<CarInfo>   selectByArg(String ctype, Double sprice,Double eprice, String model, Date sage,Date eage, Double mileage, List<String> colors,Integer pageCurrent);
     Integer  delete(Integer carId);
+    Integer pay(Integer carId,Integer belong,String belongType);
+    CarInfo carBelong(Integer belong,Integer carId,String type);
 }

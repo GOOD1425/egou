@@ -18,4 +18,9 @@
             limit  #{pageCurrent},3
         </if>
     </select>
+    <update id="shenhe">
+        update inquiry
+        set  isdelete =1
+        where id=#{InquiryId};
+    </update>
 </mapper>

@@ -1,0 +1,75 @@
+.slider-root-box {
+    min-width: 1200px;
+    height: 400px;
+    position: relative;
+    z-index: 2;
+}
+.slider-list {
+    position: absolute;
+    width: 100%;
+    min-width: 1200px;
+    height: 400px;
+    overflow: hidden;
+}
+.slider-list ul {
+    list-style: none;
+    width: 100%;
+    height: 400px;
+}
+.slider-list ul li.active {
+    display: block;
+    margin-left: -960px;
+}
+.slider-list ul li {
+    position: absolute;
+    width: 100%;
+    min-width: 1200px;
+    height: 400px;
+    left: 50%;
+    margin-left: -50%;
+    display: none;
+}
+.slider-menu-1 {
+    position: absolute;
+    bottom: 30px;
+    width: 600px;
+    height: 20px;
+    left: 50%;
+    margin-left: 0;
+}
+.slider-menu-1 ul {
+    position: absolute;
+    right: 0;
+    list-style: none;
+}
+.assessment-container {
+    clear: both;
+    display: block;
+    width: 386px;
+    position: absolute;
+    left: 50%;
+    margin-left: -600px;
+    top: 0;
+    z-index: 3;
+    padding-top: 10px;
+}
+.assessment-screen {
+    width: 386px;
+    height: 380px;
+    background-color: #fff;
+}
+.assessment-screen-title {
+    height: 72px;
+    line-height: 72px;
+    font-size: 23px;
+    text-align: center;
+    color: #fff;
+    background: url(//img1.yixinfinance.com/images/ping-top-bg2.jpg) no-repeat 0 100% #f50013;
+}
+.assessment-screen .form-sm {
+    margin-top: 20px;
+}
+.assessment-screen .form-sm .form-group {
+    height: 55px;
+    margin-bottom: 0;
+}

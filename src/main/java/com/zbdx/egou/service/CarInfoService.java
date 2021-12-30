@@ -14,4 +14,6 @@ public interface CarInfoService {
     List<CarInfo>  selectByArg(String ctype, Double sprice, Double eprice, String model, Date sage, Date eage,  Double mileage, List<String> colors,Integer pageCurrent);
     List<CarInfo> selectByNameType(Integer pageCurrent,Integer belong,String type);
     Integer delete(Integer carId);
+    Integer pay(Integer carId,Integer belong,String belongType);
+    CarInfo carBelong(Integer belong,Integer carId,String type);
 }

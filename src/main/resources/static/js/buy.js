@@ -1,7 +1,8 @@
 $(document).ready(function(){
+    getCar();
     $("#ul_menu li",parent.document).each(function (i,n) {
         $(n).removeClass("current")
-        if(i==1 ){
+        if(i==0 ){
             $(n).addClass("current")
         }
     })
@@ -17,17 +18,14 @@ $(document).ready(function(){
         $(".ul_C a").each(function (i,n) {
             $(n).click(function () {
                 $(".ul_C a").each(function (j,m) {
-                    if (i==j){
-                        $(m).addClass("current-sel")
-                         getCar();
-                    }else {
-                        $(m).removeClass("current-sel")
-                    }
+                    $(m).removeClass("current-sel")
                 })
+                $(n).addClass("current-sel")
+                getCar();
             })
         })
     })
-    getCar();
+
     function getCar() {
         var res=document.querySelectorAll(".current-sel")
         $("#resultArg").val("")

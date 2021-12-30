@@ -5,6 +5,9 @@ $(document).ready(function(){
             $(n).addClass("current")
         }
     })
+    $("#sellBtn").bind("click",function () {
+
+    })
 })
 $("#sellcar").click(function (){
     $("#ul_menu li",parent.document).each(function (i,n) {

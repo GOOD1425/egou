@@ -17,14 +17,14 @@
     <div class="p-cont-wrap">
         <div class="">
             <div class="p-cont-title clearfix">
-                <div class="float-l ct-txt">我发布的车源</div>
+                <div class="float-l ct-txt">我的车源</div>
             </div>
             <!-- 没有求购 -->
             <div id="divEmpty" class="p-cont-null">
                 <div class="content_main">
                     <img src="//image.bitautoimg.com/taoche/2018_pc_usedcar/error-num.png" alt="">
                     <div class="font_main">
-                        <h2>暂时没有发布二手车，请发布车！</h2>
+                        <h2>暂时没有二手车车源，请发布或购买！</h2>
                     </div>
                 </div>
             </div>
@@ -35,7 +35,7 @@
                         <div class=" disabled table status_evaluate">
                             <div class="head">
                                 <span class="time"></span>
-                                <span class="text"></span>
+                               <span class="text"> 车源编号：<span class="id"> </span></span>
                             </div>
                             <table>
                                 <tr>
@@ -58,7 +58,7 @@
                         <div class=" disabled table status_evaluate">
                             <div class="head">
                                 <span class="time"></span>
-                                <span class="text"></span>
+                                <span class="text"> 车源编号：<span class="id"> </span></span>
                             </div>
                             <table>
                                 <tr>
@@ -81,7 +81,7 @@
                         <div class=" disabled table status_evaluate">
                             <div class="head">
                                 <span class="time"></span>
-                                <span class="text"></span>
+                                <span class="text"> 车源编号：<span class="id"> </span></span>
                             </div>
                             <table>
                                 <tr>
@@ -130,11 +130,11 @@
                         }
                         $(n).attr('src', data[i].appearpic);
                     })
-                    $(".head .text").each(function (i,n) {
+                    $(".head .text .id").each(function (i,n) {
                         if (i == length) {
                             return false;
                         }
-                        $(n).html("车源编号："+data[i].carId)
+                        $(n).html(data[i].carId)
                     })
                     $(".head .time").each(function (i,n) {
                         if (i == length) {
@@ -168,20 +168,6 @@
                         }
                         $(n).html(data[i].price+"万元")
                     })
-                    $(".operate .say_btn").each(function (i,n) {
-                        if (i == length) {
-                            return false;
-                        }
-                        $(n).click(function () {
-                            $.post("/delete",{carId:data[i].carId},function (data) {
-                                if(data=="ok"){
-                                    $("#iframe",parent.document).attr("src","/mycar")
-                                }else{
-                                    alert("下架失败")
-                                }
-                            })
-                        })
-                    })
                     $("#paginationpage").pagination({
                         currentPage: 1,//当前页
                         totalPage: pageCount,//数据总页数
@@ -208,11 +194,12 @@
                                         }
                                         $(n).attr('src', data[i].appearpic);
                                     })
-                                    $(".head .text").each(function (i,n) {
+
+                                    $(".head .text .id").each(function (i,n) {
                                         if (i == length) {
                                             return false;
                                         }
-                                        $(n).html("车源编号："+data[i].carId)
+                                        $(n).html(data[i].carId)
                                     })
                                     $(".head .time").each(function (i,n) {
                                         if (i == length) {
@@ -246,20 +233,6 @@
                                         }
                                         $(n).html(data[i].price+"万元")
                                     })
-                                    $(".operate .say_btn").each(function (i,n) {
-                                        if (i == length) {
-                                            return false;
-                                        }
-                                        $(n).click(function () {
-                                            $.post("/delete",{carId:data[i].carId},function (data) {
-                                                if(data=="ok"){
-                                                    $("#iframe",parent.document).attr("src","/mycar")
-                                                }else{
-                                                    alert("下架失败")
-                                                }
-                                            })
-                                        })
-                                    })
                                 }
                             })
                         }
@@ -273,6 +246,18 @@
             }
         })
 
+    })
+    $(".operate .say_btn").each(function (i,n) {
+        $(n).click(function () {
+           var list=$(".head .text .id")
+            $.post("/delete",{carId:list[i].innerHTML},function (data) {
+                if(data=="ok"){
+                    $("#iframe",parent.document).attr("src","/mycar")
+                }else{
+                    alert("下架失败")
+                }
+            })
+        })
     })
 </script>
 </html>

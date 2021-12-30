@@ -55,4 +55,14 @@ public class CarInfoServiceImpl implements CarInfoService {
     public Integer delete(Integer carId) {
         return carInfoDao.delete(carId);
     }
+
+    @Override
+    public Integer pay(Integer carId, Integer belong, String belongType) {
+        return carInfoDao.pay(carId,belong,belongType);
+    }
+
+    @Override
+    public CarInfo carBelong(Integer belong, Integer carId, String type) {
+        return carInfoDao.carBelong(belong, carId, type);
+    }
 }

@@ -22,4 +22,9 @@ public class InquiryServiceImpl implements InquiryService {
         if(pageCurrent!=null) pageCurrent=(pageCurrent-1)*3;
         return inquiryDao.selectAll(pageCurrent,carIds);
     }
+
+    @Override
+    public Integer shenhe(Integer InquiryId) {
+        return inquiryDao.shenhe(InquiryId);
+    }
 }

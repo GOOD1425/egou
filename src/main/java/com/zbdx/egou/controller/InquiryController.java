@@ -63,4 +63,13 @@ public class InquiryController {
         }
         return  list;
     }
+    @RequestMapping("/shenhe")
+    @ResponseBody
+    public  String shenhe(Integer InquiryId){
+        Integer shenhe = inquiryService.shenhe(InquiryId);
+        if(shenhe!=0){
+            return "ok";
+        }
+        return "error";
+    }
 }

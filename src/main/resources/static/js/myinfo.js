@@ -11,11 +11,23 @@ $(document).ready(function(){
             })
         }else if(i==1){
             $(n).click(function () {
+                $(".content_wrapper iframe").attr("src","/myorder1")
+            })
+        }else if(i==2){
+            $(n).click(function () {
                 $(".content_wrapper iframe").attr("src","/mycollect")
             })
-        }else if (i==2){
+        }else if (i==3){
             $(n).click(function () {
                 $(".content_wrapper iframe").attr("src","/myorder")
+            })
+        }else if(i==4){
+            $(n).click(function () {
+                $(".content_wrapper iframe").attr("src","/mydailinfo")
+            })
+        }if(i==5){
+            $(n).click(function () {
+                $(".content_wrapper iframe").attr("src","/myshop")
             })
         }
     })

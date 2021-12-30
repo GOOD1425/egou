@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zbdx.egou.dao.OrderDao">
+    <insert id="insert">
+        insert into tb_order  values (#{orderId},#{userId},#{carId},#{deposit},#{due},#{date},#{isDelete});
+    </insert>
+    <select id="selectOrder" resultType="com.zbdx.egou.pojo.Order">
+        select * from tb_order where user_id =#{userId} and  car_id=#{carId} and is_delete=0
+    </select>
+    <select id="selectAllOrder" resultType="com.zbdx.egou.pojo.Order">
+        select * from tb_order where user_id =#{userId}
+        <if test="pageCurrent!=null">
+            limit  #{pageCurrent},3
+        </if>
+    </select>
+    <update id="pay">
+        update tb_order set is_delete=1 where order_id=#{orderId}
+    </update>
+    <select id="findOrder" resultType="com.zbdx.egou.pojo.Order">
+        select * from tb_order where order_id=#{orderId} and is_delete=0
+    </select>
+    <select id="yipay" resultType="com.zbdx.egou.pojo.Order">
+        select * from tb_order where is_delete =1
+        <if test="carIds!=null ">
+            and  car_id in
+            <foreach collection="carIds" item="carId" open="(" separator="," close=")">
+                #{carId}
+            </foreach>
+        </if>
+        <if test="pageCurrent!=null">
+            limit  #{pageCurrent},3
+        </if>
+    </select>
+</mapper>

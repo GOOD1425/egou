@@ -22,7 +22,7 @@ window.onload=function(){
 $(document).ready(function(){
     $("#ul_menu li",parent.document).each(function (i,n) {
         $(n).removeClass("current")
-        if(i==2) {
+        if(i==1) {
             $(n).addClass("current")
         }
     })

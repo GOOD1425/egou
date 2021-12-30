@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/mydatailinfo.js"></script>
+</head>
+<style>
+    .user_from .alert {
+        width: 240px;
+        vertical-align: middle;
+        display: inline-block;
+        line-height: 23px;
+        height: 23px;
+        border: 1px solid #ff5231;
+        background: #fff2ea;
+        color: #666;
+        font-size: 12px;
+        padding: 0 10px;
+        margin-top: 10px;
+    }
+    .user_from .info {
+        margin-left: 140px;
+    }
+    .user_from .input_line  {
+        width: 200px;
+        height: 40px;
+        padding: 0 20px;
+        color: #333;
+    }
+    .user_from .i_txt {
+        font-size: 16px;
+        color: #000;
+    }
+
+    .title_box {
+        margin: 10px 20px;
+        border-bottom: 2px solid #eee;
+    }
+
+    .title_box .h2 {
+        border-bottom: 2px solid #f50013;
+        margin-bottom: -2px;
+        display: inline-block;
+        width: 100px;
+        text-align: center;
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 44px;
+        color: #666;
+    }
+
+    li, ol, ul {
+        list-style: none;
+    }
+
+    .user_from .item {
+        padding-bottom: 10px;
+        line-height: 40px;
+    }
+
+    .user_from .txt {
+        color: #666;
+        font-size: 16px;
+        width: 120px;
+        float: left;
+        text-align: right;
+    }
+
+    .user_from .alert i, .user_from {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .user_from, .user_from {
+        width: 200px;
+        padding: 0 20px;
+        color: #333;
+    }
+
+    .user_btn_box {
+        padding-left: 140px;
+    }
+
+    a.btn_org {
+        width: 240px;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        color: #fff;
+        font-size: 16px;
+        display: block;
+        background: red;
+    }
+
+</style>
+
+<body>
+<div class="title_box">
+    <h2 class="h2">个人资料</h2>
+</div>
+<section class="user_from_box">
+    <input id="userId" type="hidden" value="">
+    <div class="tab_text_box" style="display: block" id="userProfileText">
+        <ul class="user_from">
+            <li class="item">
+                <div class="txt">昵 &nbsp; &nbsp; &nbsp; 称</div>
+                <div class="info">
+                    <span class="i_txt" id="NickNameTxt"></span>
+                </div>
+            </li>
+            <li class="item">
+                <div class="txt">所&nbsp; 在 &nbsp;地</div>
+                <div class="info">
+                    <span class="i_txt" id="CityIDTxt"></span>
+                </div>
+            </li>
+            <li class="item">
+                <div class="txt">联系方式</div>
+                <div class="info">
+                    <span class="i_txt" id="AddressTxt"></span>
+                </div>
+            </li>
+        </ul>
+        <div class="user_btn_box">
+            <a href="javascript:;" class="btn_org" id="UserEditBtn">编辑</a>
+        </div>
+    </div>
+    <div class="tab_input_box" id="userProfileInput" style="display: none;">
+        <ul class="user_from">
+            <li class="item" is-data="true">
+                <div class="txt">昵 &nbsp; &nbsp; 称</div>
+                <div class="info">
+                    <span class="input"><input type="text" name="name" class="input_line UsernameInput" value=""
+                                               id="NickName" maxlength="10"></span>
+                    <span id="nickalert" class="alert" style="display:none;" >
+                        <i>您输入的字符过长，请限制在十个字符以内</i>
+                    </span>
+                </div>
+            </li>
+
+            <li class="item">
+                <div class="txt">联系方式</div>
+                <div class="info">
+                    <span class="input"><input type="text" name="name" class="input_line UsernameInput" value=""
+                                               id="AddsName" maxlength="11"></span>
+                    <span id="phonealert" class="alert"   style="display:none;">
+                        <i>您输入的联系方式有误！！</i>
+                    </span>
+                </div>
+            </li>
+        </ul>
+        <div class="user_btn_box">
+            <a href="javascript:;" class="btn_org" id="UserSaveBtn">保存</a>
+        </div>
+    </div>
+
+</section>
+</body>
+</html>

@@ -35,7 +35,7 @@
                         <div class=" disabled table status_evaluate">
                             <div class="head">
                                 <span class="time"></span>
-                                <span class="text"></span>
+                                <span class="text"><span</span>
                             </div>
                             <table>
                                 <tr>
@@ -141,7 +141,7 @@
                             return false;
                         }
                         var date=new Date(data[i].carInfo.prodate)
-                        $(n).html("发布日期："+date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate())
+                        $(n).html("收藏日期："+date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate())
                     })
                     $(".table").each(function (i, n) {
                         if (i < length) {
@@ -167,20 +167,6 @@
                             return false;
                         }
                         $(n).html(data[i].carInfo.price+"万元")
-                    })
-                    $(".operate .say_btn").each(function (i,n) {
-                        if (i == length) {
-                            return false;
-                        }
-                        $(n).click(function () {
-                            $.post("/deletecollect",{collectId:data[i].collectId},function (data) {
-                                if(data=="ok"){
-                                    $("#iframe",parent.document).attr("src","/mycollect")
-                                }else{
-                                    alert("删除失败！")
-                                }
-                            })
-                        })
                     })
                     $("#paginationpage").pagination({
                         currentPage: 1,//当前页
@@ -211,14 +197,14 @@
                                         if (i == length) {
                                             return false;
                                         }
-                                        $(n).html("车源编号："+data[i].carInfo.carId)
+                                        $(n).html(data[i].carInfo.carId)
                                     })
                                     $(".head .time").each(function (i,n) {
                                         if (i == length) {
                                             return false;
                                         }
                                         var date=new Date(data[i].carInfo.prodate)
-                                        $(n).html("发布日期："+date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate())
+                                        $(n).html("收藏日期："+date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate())
                                     })
                                     $(".table").each(function (i, n) {
                                         if (i < length) {
@@ -245,20 +231,6 @@
                                         }
                                         $(n).html(data[i].carInfo.price+"万元")
                                     })
-                                    $(".operate .say_btn").each(function (i,n) {
-                                        if (i == length) {
-                                            return false;
-                                        }
-                                        $(n).click(function () {
-                                            $.post("/deletecollect",{collectId:data[i].collectId},function (data) {
-                                                if(data=="ok"){
-                                                    $("#iframe",parent.document).attr("src","/mycollect")
-                                                }else{
-                                                    alert("删除失败！")
-                                                }
-                                            })
-                                        })
-                                    })
                                 }
                             })
                         }
@@ -271,7 +243,20 @@
 
             }
         })
-
+    })
+    $(".operate .say_btn").each(function (i,n) {
+        $(n).click(function () {
+            var list=$(".head .text .id")
+            $(n).click(function () {
+                $.post("/deletecollect",{collectId:list[0].innerHTML},function (data) {
+                    if(data=="ok"){
+                        $("#iframe",parent.document).attr("src","/mycollect")
+                    }else{
+                        alert("删除失败！")
+                    }
+                })
+            })
+        })
     })
 </script>
 </html>

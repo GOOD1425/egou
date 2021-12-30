@@ -5,7 +5,7 @@ $(document).ready(function(){
     })
     $("#ul_menu li").each(function (i,n) {
         $(n).removeClass("current")
-        if(i==0) {
+        if(i===0) {
             $(n).addClass("current")
         }
     })
@@ -30,7 +30,7 @@ $("#index").click(function (){
     var context=$("#login-car").text()
         $.post("/index",
             function () {
-                $("#J_iframe",parent.document).attr("src","/content")
+                $("#J_iframe",parent.document).attr("src","/buy")
             }
         )}
 )
@@ -59,41 +59,23 @@ $(document).ready(function(){
 
 });
 $("#ul_menu li").each(function (i,n) {
-    if(i===0){
-        $(n).click(function () {
-            $("#ul_menu li").eq(1).removeClass("current")
-            $("#ul_menu li").eq(2).removeClass("current")
-            $(n).addClass("current")
-            $.post("/buycar/all",function () {
-                $("#J_iframe").attr("src","/content")
-            })
-        })
-    }else if(i===1){
-        $(n).click(function () {
-            $("#ul_menu li").eq(0).removeClass("current")
-            $("#ul_menu li").eq(2).removeClass("current")
-            $(n).addClass("current")
-            $.post("/buycar/all",function () {
-                $("#J_iframe").attr("src","/buy")
-            })
-        })
-    }else {
-        $(n).click(function () {
-            $("#ul_menu li").eq(0).removeClass("current")
+    $(n).click(function () {
+        if (i === 0) {
             $("#ul_menu li").eq(1).removeClass("current")
             $(n).addClass("current")
-            $("#J_iframe").attr("src","/sell")
-
-        })
-    }
-
+            $.post("/buycar/all", function () {
+                $("#J_iframe").attr("src", "/buy")
+            })
+        } else {
+            $("#ul_menu li").eq(0).removeClass("current")
+            $(n).addClass("current")
+            $("#J_iframe").attr("src", "/sell")
+        }
+    })
 })
-
 $("#buy").bind("click",function () {
     $("#ul_menu li",parent.document).each(function (i,n) {
-        if(i==0){
-            $(n).removeClass("current")
-        }else if(i==1){
+         if(i==0){
             $(n).addClass("current")
             $("#J_iframe").attr("src","/buy")
         }else{
@@ -103,13 +85,11 @@ $("#buy").bind("click",function () {
 })
 $("#sell").bind("click",function () {
     $("#ul_menu li",parent.document).each(function (i,n) {
-        if(i==0){
-            $(n).removeClass("current")
-        }else if(i==1){
-            $(n).removeClass("current")
-        }else{
+      if(i==1){
             $(n).addClass("current")
-            $("#J_iframe").attr("src","/sell")
+          $("#J_iframe").attr("src","/sell")
+        }else{
+            $(n).removeClass("current")
         }
     })
 })

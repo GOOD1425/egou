@@ -1,6 +1,9 @@
 package com.zbdx.egou.controller;
 
+import com.zbdx.egou.pojo.CarInfo;
+import com.zbdx.egou.pojo.Store;
 import com.zbdx.egou.pojo.User;
+import com.zbdx.egou.service.StoreService;
 import com.zbdx.egou.service.UserService;
 import com.zbdx.egou.utils.CustomizedToken;
 import com.zbdx.egou.utils.IPutils;
@@ -16,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.io.IOException;
+import java.util.List;
 
 @Controller
 @RequestMapping("/user")
@@ -23,6 +27,8 @@ public class UserController {
     private static final String USER_LOGIN_TYPE = LoginType.USER.toString();
     @Autowired
     UserService userService;
+    @Autowired
+    StoreService storeService;
     @RequestMapping("/checkLogin")
     @ResponseBody
     public  String checkLogin(String username, String password){
@@ -61,5 +67,26 @@ public class UserController {
         }else {
             return "error";
         }
+    }
+    @RequestMapping("/selectMyInfo")
+    @ResponseBody
+    public Object  selectMyInfo( String username, String type){
+
+        if (type.equals("user")){
+            User user = userService.selectByUsername(username);
+            return user;
+        }else {
+            Store store = storeService.selectByUsername(username);
+            return store;
+        }
+    }
+    @RequestMapping("/updateInfo")
+    @ResponseBody
+    public String updateInfo(String username,String phone,Integer userId ){
+        Integer info = userService.updateInfo(username, phone, userId);
+        if (info!=0){
+            return "ok";
+        }
+        return "error";
     }
 }

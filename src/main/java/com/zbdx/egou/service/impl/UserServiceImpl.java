@@ -32,4 +32,10 @@ public class UserServiceImpl implements UserService {
     public User selectByUsername(String username) {
         return userDao.selectByUsername(username);
     }
+
+    @Override
+    public Integer updateInfo(String username, String phone, Integer userId) {
+
+        return userDao.updateInfo(username,phone,userId);
+    }
 }
